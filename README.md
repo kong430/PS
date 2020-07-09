@@ -1,2 +1,2 @@
-# BOJ
+# PS
 algorithm problem solving
