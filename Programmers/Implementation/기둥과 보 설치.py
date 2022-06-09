@@ -1,5 +1,5 @@
 # refactor
-def check_valid_col(n, col, columns, rows):
+def check_valid_col(col, columns, rows):
     if col[1] == 0 or col in rows or (col[0]-1, col[1]) in rows or (col[0], col[1]-1) in columns:
         return True
     return False
@@ -9,9 +9,9 @@ def check_valid_row(r, columns, rows):
         return True
     return False
 
-def check_all_valid(n, columns, rows):
+def check_all_valid(columns, rows):
     for column in columns:
-        if check_valid_col(n, column, columns, rows) == False:
+        if check_valid_col(column, columns, rows) == False:
             return False
     for row in rows:
         if check_valid_row(row, columns, rows) == False:
@@ -28,17 +28,17 @@ def solution(n, build_frame):
             # 제거 후 조건에 맞지 않다면 다시 넣음
             if (frame[2] == 0):
                 cols.remove((frame[0], frame[1]))
-                if check_all_valid(n, cols, rows) == False:
+                if check_all_valid(cols, rows) == False:
                     cols.append((frame[0], frame[1]))
             else:
                 rows.remove((frame[0], frame[1]))
-                if check_all_valid(n, cols, rows) == False:
+                if check_all_valid(cols, rows) == False:
                     rows.append((frame[0], frame[1]))
         # 추가하는 경우
         else:
             # 조건에 맞다면 추가
             if (frame[2] == 0):
-                if check_valid_col(n, (frame[0], frame[1]), cols, rows) == True:
+                if check_valid_col((frame[0], frame[1]), cols, rows) == True:
                     cols.append((frame[0], frame[1]))
             else:
                 if check_valid_row((frame[0], frame[1]), cols, rows) == True:
