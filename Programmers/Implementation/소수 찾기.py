@@ -18,5 +18,5 @@ def solution(numbers):
             if is_prime_number(int(''.join(case))):
                 print(int(''.join(case)))
                 answer.append(int(''.join(case)))
-    print(set(answer))
+
     return len(set(answer))
