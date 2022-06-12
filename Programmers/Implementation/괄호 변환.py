@@ -42,7 +42,6 @@ def transform(w):
         for i in range(1, len(u)-1):
             new = new + ('(' if u[i] ==')' else ')')
         return new
-    
                 
 def solution(p):
     answer = ''
