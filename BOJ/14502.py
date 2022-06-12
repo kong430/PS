@@ -22,7 +22,15 @@ def spread_viruses(nmap, viruses):
                 if nmap[nx][ny] == 0:
                     q.append((nx, ny))
                     nmap[nx][ny] = 2
-    return nmap 
+    return nmap
+
+def cal_area(virus_map):
+    cnt = 0
+    for i in range(n):
+        for j in range(m):
+            if virus_map[i][j] == 0:
+                cnt += 1
+    return cnt
 
 n, m = map(int, input().split())
 nmap = []
@@ -45,11 +53,5 @@ Max = -1e9
 for emptys in combinations(original_emptys, 3):
     wall_map = set_wall(deepcopy(nmap), emptys)
     virus_map = spread_viruses(deepcopy(wall_map), viruses)
-    cnt = 0
-    for i in range(n):
-        for j in range(m):
-            if virus_map[i][j] == 0:
-                cnt += 1
-    Max = max(Max, cnt)
-
+    Max = max(Max, cal_area(virus_map))
 print(Max)
