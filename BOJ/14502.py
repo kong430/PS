@@ -1,6 +1,5 @@
 from itertools import combinations
 from collections import deque
-from copy import deepcopy
 
 def set_wall(nmap, emptys):
     for empty in emptys:
@@ -51,7 +50,7 @@ dy = [0, 0, -1, 1]
 
 Max = -1e9
 for emptys in combinations(original_emptys, 3):
-    wall_map = set_wall(deepcopy(nmap), emptys)
-    virus_map = spread_viruses(deepcopy(wall_map), viruses)
+    wall_map = set_wall([item[:] for item in nmap], emptys)
+    virus_map = spread_viruses([item[:] for item in wall_map], viruses)
     Max = max(Max, cal_area(virus_map))
 print(Max)
