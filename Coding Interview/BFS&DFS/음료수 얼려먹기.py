@@ -2,7 +2,6 @@ n, m = map(int, input().split())
 
 nmap = []
 visited = [[False] * m for i in range(n)]
-print(visited)
 
 for i in range(n):
     nmap.append(list(map(int, input())))
