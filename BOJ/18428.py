@@ -83,7 +83,6 @@ for points in combinations(x_points, 3):
         break
     remove_ob(points)
 
-
 if not chk:
     print('YES')
 else:
