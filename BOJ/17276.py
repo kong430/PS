@@ -12,6 +12,8 @@
 # (45도 돌 횟수, 원본 배열)
 def rotate(cnt, nmap):
     n = len(nmap)
+    mid = (n+1)//2-1
+    
     original_map = []
     for _ in range(n):
         original_map = [item[:] for item in nmap]
@@ -25,12 +27,12 @@ def rotate(cnt, nmap):
         for i in range(n):
             for j in range(n):
                 if i==j:
-                    new_map[i][(n+1)//2-1] = original_map[i][j]
-                if j==(n+1)//2-1:
+                    new_map[i][mid] = original_map[i][j]
+                if j==mid:
                     new_map[i][n-i-1] = original_map[i][j]
                 if j==(n-i-1):
-                    new_map[(n+1)//2 - 1][j] = original_map[i][j]
-                if i==(n+1)//2-1:
+                    new_map[mid][j] = original_map[i][j]
+                if i==mid:
                     new_map[j][j] = original_map[i][j]
         for _ in range(n):
             original_map = [item[:] for item in new_map]
