@@ -20,7 +20,6 @@ def solution(cacheSize, cities):
         elif len(cache)==cacheSize:
             answer += 5
             if cacheSize>0:
-                cache.popleft()
                 cache.append(city)
         # 캐시에 없고 full이 아닐 경우
         else:
