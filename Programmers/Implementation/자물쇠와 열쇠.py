@@ -1,14 +1,11 @@
 # 시계 방향으로 회전
 def rotate_map(key):
-    ones = []
-    for i in range(len(key)):
-        for j in range(len(key)):
-            if key[i][j] == 1:
-                ones.append([j, len(key) - i - 1])
-    new_map = [[0] * len(key) for _ in range(len(key))]
-    for one in ones:
-        new_map[one[0]][one[1]] = 1
-    return new_map
+    n = len(key)
+    result = [item[:] for item in key]
+    for i in range(n):
+        for j in range(n):
+            result[j][n-i-1] = key[i][j]
+    return result
 
 def check_val(n, lock):
     for i in range(n, n*2):
